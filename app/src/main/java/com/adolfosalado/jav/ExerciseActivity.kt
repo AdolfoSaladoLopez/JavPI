@@ -1,17 +1,15 @@
 package com.adolfosalado.jav
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.adolfosalado.jav.api.ApiService
 import com.adolfosalado.jav.api.Retrofit
 import com.adolfosalado.jav.databinding.ActivityExerciseBinding
 import com.adolfosalado.jav.models.Answer
-import com.adolfosalado.jav.models.Lesson
 import com.adolfosalado.jav.models.Question
 import com.adolfosalado.jav.models.QuestionAnswers
 import kotlinx.coroutines.CoroutineScope
@@ -19,10 +17,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ExerciseActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityExerciseBinding
     private var indexQuestion = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,25 +72,9 @@ class ExerciseActivity : AppCompatActivity() {
                         QuestionAnswers(currentQuestion, answersOfTheCurrentQuestion)
 
                     listOfQuestionsWithAnswers.add(currentQuestionAnswers)
-
-                }
-
-                listOfQuestionsWithAnswers.forEach {
-                    val quest = it.question.question
-                    val answ = it.answers
-
-                    Log.i("Answer", quest)
-
-                    answ?.forEach { ans ->
-                        Log.i("Answer", ans.answer)
-
-                    }
-
                 }
 
                 showQuestion(listOfQuestionsWithAnswers)
-
-
             }
         }
     }
@@ -108,18 +88,18 @@ class ExerciseActivity : AppCompatActivity() {
         val answerCorrect = currentAnswers?.find { it.correct }
 
         binding.ivQuestion.setImageResource(R.drawable.jav)
-        binding.tvTitleOfQuestion.text = actualQuestion.question.name
-        binding.tvTextOfQuestion.text = actualQuestion.question.question
-        binding.rb1.text = currentAnswers?.get(0)?.answer
-        binding.rb2.text = currentAnswers?.get(1)?.answer
-        binding.rb3.text = currentAnswers?.get(2)?.answer
-        binding.rb4.text = currentAnswers?.get(3)?.answer
+        binding.tvTitleOfQuestion.text = actualQuestion.question.name.trim()
+        binding.tvTextOfQuestion.text = actualQuestion.question.question.trim()
+        binding.rb1.text = currentAnswers?.get(0)?.answer?.trim()
+        binding.rb2.text = currentAnswers?.get(1)?.answer?.trim()
+        binding.rb3.text = currentAnswers?.get(2)?.answer?.trim()
+        binding.rb4.text = currentAnswers?.get(3)?.answer?.trim()
 
         binding.btnAnswer.setOnClickListener {
             val idRadioButton = binding.rgAnswer.checkedRadioButtonId
             val radioButtonSelected = findViewById<RadioButton>(idRadioButton)
 
-            if (radioButtonSelected.text.equals(answerCorrect?.answer)) {
+            if (radioButtonSelected.text.trim() == answerCorrect?.answer?.trim()) {
                 Toast.makeText(it.context, "Has acertado", Toast.LENGTH_LONG).show()
                 indexQuestion++
 

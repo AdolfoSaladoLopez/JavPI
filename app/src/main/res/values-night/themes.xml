@@ -1,7 +1,32 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.JavApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<resources>
+    <!-- Base application theme -->
+    <style name="Base.Theme.JavApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/card</item>
+        <item name="colorPrimaryVariant">@color/card</item>
+        <item name="colorOnPrimary">@color/card</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/accents</item>
+        <item name="colorSecondaryVariant">@color/accents</item>
+        <item name="colorOnSecondary">@color/accents</item>
+
+        <!-- Background color -->
+        <item name="android:windowBackground">@color/background</item>
+
+        <!-- Text color -->
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/accents</item>
+
+        <!-- Button styles -->
+        <item name="buttonStyle">@style/Widget.AppTheme.Button</item>
+    </style>
+
+    <!-- Button style -->
+    <style name="Widget.AppTheme.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:radius">20dp</item>
+        <item name="android:background">@color/accents</item>
     </style>
 </resources>
+

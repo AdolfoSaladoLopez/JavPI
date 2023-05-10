@@ -1,9 +1,8 @@
 package com.adolfosalado.jav
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.adolfosalado.jav.adapter.LessonAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.adolfosalado.jav.api.ApiService
 import com.adolfosalado.jav.api.Retrofit
 import com.adolfosalado.jav.databinding.ActivityLessonBinding
@@ -24,8 +23,6 @@ class LessonActivity : AppCompatActivity() {
 
         lessonId = getLessonId()
         showLesson(lessonId)
-
-
     }
 
     private fun getLessonId(): String? {
@@ -41,12 +38,12 @@ class LessonActivity : AppCompatActivity() {
             if (call != null && call.isSuccessful) {
                 val lesson = call.body()
 
-                binding.tvTitleLesson.text = lesson?.name
-                binding.tvFirstDescription.text = lesson?.firstDescription
+                binding.tvTitleLesson.text = lesson?.name?.trim()
+                binding.tvFirstDescription.text = lesson?.firstDescription?.trim()
                 binding.ivFirstImage.setImageResource(R.drawable.jav)
-                binding.tvSecondDescription.text = lesson?.secondDescription
+                binding.tvSecondDescription.text = lesson?.secondDescription?.trim()
                 binding.ivSecondImage.setImageResource(R.drawable.jav)
-                binding.tvThirdDescription.text = lesson?.thirdDescription
+                binding.tvThirdDescription.text = lesson?.thirdDescription?.trim()
 
                 binding.btnGoToExercise.setOnClickListener {
                     val intent = Intent(it.context, ExerciseActivity::class.java)
