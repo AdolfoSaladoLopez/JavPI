@@ -1,5 +1,6 @@
 package com.adolfosalado.jav
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -42,6 +43,8 @@ class RecyclerViewLessonActivity : AppCompatActivity() {
     }
 
     private fun onItemSelected(lesson: Lesson) {
-        Toast.makeText(this, lesson.name, Toast.LENGTH_LONG).show()
+        val intent = Intent(this, LessonActivity::class.java)
+        intent.putExtra("id", lesson.id)
+        startActivity(intent)
     }
 }

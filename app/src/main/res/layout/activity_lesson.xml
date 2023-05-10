@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".LessonActivity">
+
+        <TextView
+            android:id="@+id/tvTitleLesson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="LECCIÓN 1"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFirstDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="En unas tierras muy lejanas nació Jav, la elegida por los ancestros para salvar el Reino Tiku de las manos del todopoderoso Null Pointer Exception, más conocido como Nully, quien conquistó cada uno de los reinos que forman el planeta Hardwar dejando a sus habitantes sin libertad."
+            android:textSize="22sp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitleLesson" />
+
+        <ImageView
+            android:id="@+id/ivFirstImage"
+            android:layout_width="200dp"
+            android:layout_height="160dp"
+            android:layout_margin="20sp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFirstDescription" />
+
+        <TextView
+            android:id="@+id/tvSecondDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="En unas tierras muy lejanas nació Jav, la elegida por los ancestros para salvar el Reino Tiku de las manos del todopoderoso Null Pointer Exception, más conocido como Nully, quien conquistó cada uno de los reinos que forman el planeta Hardwar dejando a sus habitantes sin libertad."
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivFirstImage" />
+
+        <ImageView
+            android:id="@+id/ivSecondImage"
+            android:layout_width="200dp"
+            android:layout_height="160dp"
+            android:layout_margin="20sp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSecondDescription" />
+
+        <TextView
+            android:id="@+id/tvThirdDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="En unas tierras muy lejanas nació Jav, la elegida por los ancestros para salvar el Reino Tiku de las manos del todopoderoso Null Pointer Exception, más conocido como Nully, quien conquistó cada uno de los reinos que forman el planeta Hardwar dejando a sus habitantes sin libertad."
+            android:textSize="22sp"
+            app:layout_constraintTop_toBottomOf="@id/ivSecondImage" />
+
+        <Button
+            android:id="@+id/btnGoToExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30sp"
+            android:text="EJERCICIOS"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvThirdDescription" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
