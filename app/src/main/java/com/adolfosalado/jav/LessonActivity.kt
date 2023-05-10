@@ -1,5 +1,6 @@
 package com.adolfosalado.jav
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.adolfosalado.jav.adapter.LessonAdapter
@@ -46,6 +47,12 @@ class LessonActivity : AppCompatActivity() {
                 binding.tvSecondDescription.text = lesson?.secondDescription
                 binding.ivSecondImage.setImageResource(R.drawable.jav)
                 binding.tvThirdDescription.text = lesson?.thirdDescription
+
+                binding.btnGoToExercise.setOnClickListener {
+                    val intent = Intent(it.context, ExerciseActivity::class.java)
+                    intent.putExtra("id", lessonId)
+                    startActivity(intent)
+                }
             }
         }
     }
