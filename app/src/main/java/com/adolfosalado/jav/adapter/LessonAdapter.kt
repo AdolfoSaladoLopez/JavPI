@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.adolfosalado.jav.R
 import com.adolfosalado.jav.models.Lesson
+import com.adolfosalado.jav.session.SessionData
 
 class LessonAdapter(
     private var lessonsList: List<Lesson>,
@@ -20,7 +21,10 @@ class LessonAdapter(
 
     override fun onBindViewHolder(holder: LessonViewHolder, position: Int) {
         val item = lessonsList[position]
-        holder.render(item, onClickListener)
+
+        if (item.levelOfUser == SessionData.levelUser) {
+            holder.render(item, onClickListener)
+        }
     }
 
     override fun getItemCount(): Int = lessonsList.size
