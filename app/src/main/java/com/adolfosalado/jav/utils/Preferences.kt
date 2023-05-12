@@ -18,7 +18,6 @@ class Preferences {
                 editor.apply()
             }
 
-            SessionData.levelUser = preferences.getString("level", "1").toString()
             return preferences.getString("level", "")
         }
     }

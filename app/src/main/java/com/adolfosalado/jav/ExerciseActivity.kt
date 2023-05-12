@@ -111,13 +111,31 @@ class ExerciseActivity : AppCompatActivity() {
                     builder.setMessage("Has acertado todas.")
 
                     builder.setPositiveButton("OK") { dialog, _ ->
-                        val intent = Intent(this, RecyclerViewLessonActivity::class.java)
-                        startActivity(intent)
-                        dialog.dismiss()
+
+                        val preferences = this.getSharedPreferences(
+                            "sharedPreferences",
+                            MODE_PRIVATE
+                        )
+                        val editor = preferences.edit()
+                        val lastLevel = preferences.getString("level", "")
+
+                        if (lastLevel?.toInt()!! == actualQuestion.question.lessonId.toInt()) {
+                            editor.putString("level", (lastLevel.toInt().plus(1)).toString())
+                            if (editor.commit()) {
+                                val intent = Intent(this, MainActivity::class.java)
+                                startActivity(intent)
+                                dialog.dismiss()
+                            } else {
+                                Toast.makeText(this, "Nada", Toast.LENGTH_LONG).show()
+                            }
+                        }
+
 
                     }
                     val alertDialog = builder.create()
                     alertDialog.show()
+
+
                 }
             } else {
                 Toast.makeText(it.context, "No has acertado", Toast.LENGTH_LONG).show()
