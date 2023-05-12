@@ -49,6 +49,7 @@ class LessonActivity : AppCompatActivity() {
                 binding.btnGoToExercise.setOnClickListener {
                     val intent = Intent(it.context, ExerciseActivity::class.java)
                     intent.putExtra("id", lessonId)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 }
             }

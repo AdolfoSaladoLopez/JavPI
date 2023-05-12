@@ -12,6 +12,7 @@ import com.adolfosalado.jav.databinding.ActivityExerciseBinding
 import com.adolfosalado.jav.models.Answer
 import com.adolfosalado.jav.models.Question
 import com.adolfosalado.jav.models.QuestionAnswers
+import com.airbnb.lottie.LottieAnimationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -106,35 +107,23 @@ class ExerciseActivity : AppCompatActivity() {
                 if (indexQuestion < listOfQuestionsWithAnswers.size) {
                     showQuestion(listOfQuestionsWithAnswers)
                 } else {
-                    val builder = AlertDialog.Builder(this)
-                    builder.setTitle("¡Enhorabuena!")
-                    builder.setMessage("Has acertado todas.")
 
-                    builder.setPositiveButton("OK") { dialog, _ ->
+                    val preferences = this.getSharedPreferences(
+                        "sharedPreferences",
+                        MODE_PRIVATE
+                    )
+                    val editor = preferences.edit()
+                    val lastLevel = preferences.getString("level", "")
 
-                        val preferences = this.getSharedPreferences(
-                            "sharedPreferences",
-                            MODE_PRIVATE
-                        )
-                        val editor = preferences.edit()
-                        val lastLevel = preferences.getString("level", "")
-
-                        if (lastLevel?.toInt()!! == actualQuestion.question.lessonId.toInt()) {
-                            editor.putString("level", (lastLevel.toInt().plus(1)).toString())
-                            if (editor.commit()) {
-                                val intent = Intent(this, MainActivity::class.java)
-                                startActivity(intent)
-                                dialog.dismiss()
-                            } else {
-                                Toast.makeText(this, "Nada", Toast.LENGTH_LONG).show()
-                            }
-                        }
-
+                    if (lastLevel?.toInt()!! == actualQuestion.question.lessonId.toInt()) {
+                        editor.putString("level", (lastLevel.toInt().plus(1)).toString())
+                        editor.apply()
 
                     }
-                    val alertDialog = builder.create()
-                    alertDialog.show()
 
+                    val intent = Intent(this, AnimationActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
                 }
             } else {

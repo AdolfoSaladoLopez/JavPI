@@ -23,25 +23,28 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:id="@+id/person"
+            android:id="@+id/ivTiti"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_marginTop="20sp"
-            app:srcCompat="@drawable/person" />
+            android:clickable="true"
+            app:srcCompat="@drawable/computer" />
 
         <TextView
+            android:id="@+id/tvSentence"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40sp"
+            android:layout_margin="20sp"
             android:text="JAV"
+            android:textStyle="italic"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="30sp" />
 
         <ImageView
-            android:id="@+id/jav"
+            android:id="@+id/ivCrown"
             android:layout_width="match_parent"
-            android:layout_height="60sp"
+            android:layout_height="80sp"
             app:srcCompat="@drawable/crown" />
 
         <TextView
@@ -61,28 +64,40 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/sword1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/sword" />
+                android:id="@+id/ivSword"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/no_sword" />
 
             <ImageView
-                android:id="@+id/sword2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/sword" />
+                android:id="@+id/ivShield"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/no_shield" />
 
             <ImageView
-                android:id="@+id/sword3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/sword" />
+                android:id="@+id/ivWand"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/no_wand" />
 
             <ImageView
-                android:id="@+id/sword4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/sword" />
+                android:id="@+id/ivArch"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/no_arch" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,6 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50sp"
+
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
