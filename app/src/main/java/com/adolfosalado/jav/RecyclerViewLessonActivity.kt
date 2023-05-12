@@ -2,7 +2,9 @@ package com.adolfosalado.jav
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.adolfosalado.jav.adapter.LessonAdapter
 import com.adolfosalado.jav.api.ApiService
@@ -30,13 +32,19 @@ class RecyclerViewLessonActivity : AppCompatActivity() {
 
         val apiService = getRetrofit().create(ApiService::class.java)
 
-        CoroutineScope(Dispatchers.Main).launch {
+        lifecycleScope.launch {
             val call = apiService.getLessons()
 
             if (call.isSuccessful) {
                 binding.rvLesson.adapter = LessonAdapter(call.body()!!) {
                     onItemSelected(it)
                 }
+            } else {
+                Toast.makeText(
+                    this@RecyclerViewLessonActivity,
+                    "No es posible cargar datos",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     }

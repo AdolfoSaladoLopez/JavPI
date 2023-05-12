@@ -3,6 +3,7 @@ package com.adolfosalado.jav
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.adolfosalado.jav.api.ApiService
 import com.adolfosalado.jav.api.Retrofit
 import com.adolfosalado.jav.databinding.ActivityLessonBinding
@@ -32,10 +33,10 @@ class LessonActivity : AppCompatActivity() {
     private fun showLesson(lessonId: String?) {
         val apiService = Retrofit.getRetrofit().create(ApiService::class.java)
 
-        CoroutineScope(Dispatchers.Main).launch {
+        lifecycleScope.launch {
             val call = lessonId?.let { apiService.getLessonById(it) }
 
-            if (call != null && call.isSuccessful) {
+            if (call!!.isSuccessful) {
                 val lesson = call.body()
 
                 binding.tvTitleLesson.text = lesson?.name?.trim()
