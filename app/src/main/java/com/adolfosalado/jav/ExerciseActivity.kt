@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.adolfosalado.jav.api.ApiService
 import com.adolfosalado.jav.api.Retrofit
@@ -12,7 +11,7 @@ import com.adolfosalado.jav.databinding.ActivityExerciseBinding
 import com.adolfosalado.jav.models.Answer
 import com.adolfosalado.jav.models.Question
 import com.adolfosalado.jav.models.QuestionAnswers
-import com.airbnb.lottie.LottieAnimationView
+import com.bumptech.glide.Glide
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -88,7 +87,9 @@ class ExerciseActivity : AppCompatActivity() {
         val currentAnswers = actualQuestion.answers
         val answerCorrect = currentAnswers?.find { it.correct }
 
-        binding.ivQuestion.setImageResource(R.drawable.jav)
+        Glide.with(this)
+            .load(R.drawable.eyes)
+            .into(binding.ivQuestion)
         binding.tvTitleOfQuestion.text = actualQuestion.question.name.trim()
         binding.tvTextOfQuestion.text = actualQuestion.question.question.trim()
         binding.rb1.text = currentAnswers?.get(0)?.answer?.trim()
@@ -97,6 +98,7 @@ class ExerciseActivity : AppCompatActivity() {
         binding.rb4.text = currentAnswers?.get(3)?.answer?.trim()
 
         binding.btnAnswer.setOnClickListener {
+
             val idRadioButton = binding.rgAnswer.checkedRadioButtonId
             val radioButtonSelected = findViewById<RadioButton>(idRadioButton)
 
@@ -108,22 +110,52 @@ class ExerciseActivity : AppCompatActivity() {
                     showQuestion(listOfQuestionsWithAnswers)
                 } else {
 
+                    val lessonId = actualQuestion.question.lessonId.toInt()
                     val preferences = this.getSharedPreferences(
                         "sharedPreferences",
                         MODE_PRIVATE
                     )
                     val editor = preferences.edit()
                     val lastLevel = preferences.getString("level", "")
+                    var goTo = "salta"
 
-                    if (lastLevel?.toInt()!! == actualQuestion.question.lessonId.toInt()) {
+                    if (lastLevel?.toInt()!! == lessonId) {
                         editor.putString("level", (lastLevel.toInt().plus(1)).toString())
                         editor.apply()
+
+                        if (lessonId == 3 || lessonId == 5 || lessonId == 7 || lessonId == 9) {
+                            goTo = when (lessonId) {
+                                3 -> {
+                                    "sword"
+                                }
+
+                                5 -> {
+                                    "shield"
+                                }
+
+                                7 -> {
+                                    "wand"
+                                }
+
+                                9 -> {
+                                    "arch"
+                                }
+
+                                else -> {
+                                    "salta"
+                                }
+                            }
+                        }
+
 
                     }
 
                     val intent = Intent(this, AnimationActivity::class.java)
+                    intent.putExtra("goTo", goTo)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+
 
                 }
             } else {
@@ -131,4 +163,5 @@ class ExerciseActivity : AppCompatActivity() {
             }
         }
     }
+
 }

@@ -2,7 +2,7 @@
     <!-- Base application theme -->
     <style name="Base.Theme.JavApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color -->
-        <item name="colorPrimary">@color/background</item>
+        <item name="colorPrimary">@color/card</item>
         <item name="colorPrimaryVariant">@color/card</item>
         <item name="colorOnPrimary">@color/card</item>
 
@@ -19,10 +19,14 @@
         <item name="android:textColorSecondary">@color/accents</item>
 
         <!-- Button styles -->
-        <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowContentTransitions">true</item>
 
 
+    </style>
+
+    <style name="Base.Theme.JavApp.2" parent="Base.Theme.JavApp">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimary">@color/background</item>
 
     </style>
 

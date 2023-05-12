@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
         android:text="PREGUNTA 1"
-        android:textStyle="bold"
-        android:textColor="@color/accents"
         android:textAlignment="center"
+        android:textColor="@color/accents"
         android:textSize="35sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +39,9 @@
                 android:id="@+id/ivQuestion"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_marginTop="20sp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/eyes"
+                app:layout_constraintBottom_toTopOf="@+id/tvTextOfQuestion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -78,34 +80,49 @@
             android:id="@+id/rb1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Illojuan"
+            android:buttonTint="@color/accents"
+            android:shadowColor="@color/accents"
             android:textColor="@color/accents"
-            android:textSize="25sp" />
+            android:textColorLink="@color/accents"
+
+            android:textSize="25sp"
+            tools:text="Illojuan" />
 
         <RadioButton
             android:id="@+id/rb2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Illojuan"
-            android:textColor="@color/accents"
+            android:buttonTint="@color/accents"
             android:outlineAmbientShadowColor="@color/accents"
-            android:textSize="25sp" />
+            android:shadowColor="@color/accents"
+            android:textColor="@color/accents"
+
+            android:textColorLink="@color/accents"
+            android:textSize="25sp"
+            tools:text="Illojuan" />
 
         <RadioButton
             android:id="@+id/rb3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Illojuan"
+            android:buttonTint="@color/accents"
+            android:shadowColor="@color/accents"
             android:textColor="@color/accents"
 
-            android:textSize="25sp" />
+            android:textColorLink="@color/accents"
+            android:textSize="25sp"
+
+            tools:text="Illojuan" />
 
         <RadioButton
             android:id="@+id/rb4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/accents"
+            android:shadowColor="@color/accents"
             android:text="Illojuan"
             android:textColor="@color/accents"
+            android:textColorLink="@color/accents"
             android:textSize="25sp" />
     </RadioGroup>
 
@@ -115,9 +132,9 @@
         android:layout_height="50dp"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="50sp"
-        android:background="@color/card"
-        android:textColor="@color/white"
+        android:background="@color/accents"
         android:text="ENVIAR"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

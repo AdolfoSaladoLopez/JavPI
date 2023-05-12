@@ -61,28 +61,28 @@ class MainActivity : AppCompatActivity() {
     private fun controllOfImageClickListener() {
         val level = Preferences.recoverLevelOfUserInSharedPreferences(this)?.toInt()!!
 
-        if (level == 3) {
+        if (level == 4) {
             binding.ivSword.setImageResource(R.drawable.sword)
             binding.ivSword.setOnClickListener {
                 TODO()
             }
         }
 
-        if(level == 5) {
+        if(level == 6) {
             binding.ivShield.setImageResource(R.drawable.shield)
             binding.ivShield.setOnClickListener {
                 TODO()
             }
         }
 
-        if (level == 7) {
+        if (level == 8) {
             binding.ivWand.setImageResource(R.drawable.wand)
             binding.ivWand.setOnClickListener {
                 TODO()
             }
         }
 
-        if (level == 9) {
+        if (level > 9) {
             binding.ivArch.setImageResource(R.drawable.arch)
             binding.ivArch.setOnClickListener {
                 TODO()
@@ -97,6 +97,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnLessons.setOnClickListener {
             val intent = Intent(this@MainActivity, RecyclerViewLessonActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
 
             val imageView = LottieAnimationView(this)
