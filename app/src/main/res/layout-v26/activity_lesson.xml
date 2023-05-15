@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:textAllCaps="true"
             android:text="LECCIÓN 1"
             android:textAlignment="center"
             android:textColor="@color/accents"
@@ -29,19 +30,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:justificationMode="inter_word"
             android:text="En unas tierras muy lejanas nació Jav, la elegida por los ancestros para salvar el Reino Tiku de las manos del todopoderoso Null Pointer Exception, más conocido como Nully, quien conquistó cada uno de los reinos que forman el planeta Hardwar dejando a sus habitantes sin libertad."
             android:textColor="@color/accents"
             android:textSize="22sp"
+            android:justificationMode="inter_word"
             app:layout_constraintTop_toBottomOf="@id/tvTitleLesson" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivFirstImage"
-            android:layout_width="200dp"
-            android:layout_height="160dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_margin="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvSecondDescription"
             app:layout_constraintTop_toBottomOf="@id/tvFirstDescription"
             app:shapeAppearanceOverlay="@style/roundedIcons" />
 

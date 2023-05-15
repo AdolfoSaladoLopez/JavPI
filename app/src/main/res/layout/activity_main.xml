@@ -44,7 +44,8 @@
         <ImageView
             android:id="@+id/ivCrown"
             android:layout_width="match_parent"
-            android:layout_height="80sp"
+            android:layout_height="100dp"
+            android:layout_marginTop="30dp"
             app:srcCompat="@drawable/crown" />
 
         <TextView
@@ -52,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NIVEL"
+            android:layout_marginBottom="30dp"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="30sp" />
@@ -68,7 +70,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="20dp"
                 android:clickable="true"
                 app:srcCompat="@drawable/no_sword" />
 
@@ -77,7 +79,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="20dp"
                 android:clickable="true"
                 app:srcCompat="@drawable/no_shield" />
 
@@ -86,7 +88,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="20dp"
                 android:clickable="true"
                 app:srcCompat="@drawable/no_wand" />
 
@@ -95,7 +97,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="20dp"
                 android:clickable="true"
                 app:srcCompat="@drawable/no_arch" />
         </LinearLayout>

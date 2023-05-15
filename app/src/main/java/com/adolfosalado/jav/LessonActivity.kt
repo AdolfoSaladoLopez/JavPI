@@ -41,9 +41,8 @@ class LessonActivity : AppCompatActivity() {
 
                 binding.tvTitleLesson.text = lesson?.name?.trim()
                 binding.tvFirstDescription.text = lesson?.firstDescription?.trim()
-                binding.ivFirstImage.setImageResource(R.drawable.jav)
+                addImageLesson()
                 binding.tvSecondDescription.text = lesson?.secondDescription?.trim()
-                binding.ivSecondImage.setImageResource(R.drawable.jav)
                 binding.tvThirdDescription.text = lesson?.thirdDescription?.trim()
 
                 binding.btnGoToExercise.setOnClickListener {
@@ -54,6 +53,41 @@ class LessonActivity : AppCompatActivity() {
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
                 }
+            }
+        }
+    }
+
+    private fun addImageLesson() {
+        when (lessonId) {
+            "1" -> {
+                binding.ivFirstImage.setImageResource(R.drawable.jav_person)
+            }
+            "2" -> {
+                binding.ivFirstImage.setImageResource(R.drawable.koco)
+            }
+            "3" -> {
+                binding.ivFirstImage.setImageResource(R.drawable.bosque)
+            }
+            "4" -> {
+                binding.ivFirstImage.setImageResource(R.drawable.colorful)
+            }
+            "5" -> {
+                binding.ivFirstImage.setImageResource(R.drawable.tower)
+            }
+            "6" -> {
+                binding.ivFirstImage.setImageResource(R.drawable.maze)
+            }
+            "7" -> {
+                binding.ivFirstImage.setImageResource(R.drawable.sleep)
+            }
+            "8" -> {
+                binding.ivFirstImage.setImageResource(R.drawable.noria)
+            }
+            "9" -> {
+                binding.ivFirstImage.setImageResource(R.drawable.tiovivo)
+            }
+            "10" -> {
+                binding.ivFirstImage.setImageResource(R.drawable.castle)
             }
         }
     }

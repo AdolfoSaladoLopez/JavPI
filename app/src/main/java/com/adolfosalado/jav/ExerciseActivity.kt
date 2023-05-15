@@ -15,22 +15,76 @@ import com.bumptech.glide.Glide
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 class ExerciseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityExerciseBinding
     private var indexQuestion = 0
+    private var lessonId: Int? = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val lessonId = getLessonId()
-        getQuestions(lessonId)
+        lessonId = getLessonId()?.toInt()
+
+        if (lessonId == 10) {
+            getQuestionsOfLessonTen()
+        } else {
+            getQuestions(lessonId?.toString())
+
+        }
     }
 
     private fun getLessonId(): String? {
         return intent.getStringExtra("id")
+    }
+
+    private fun getQuestionsOfLessonTen() {
+        val apiService = Retrofit.getRetrofit().create(ApiService::class.java)
+        val listOfQuestionsWithAnswers: MutableList<QuestionAnswers> = mutableListOf()
+
+        CoroutineScope(Dispatchers.Main).launch {
+            val callQuestion = apiService.getQuestions()
+            val callAnswer = apiService.getAnswers()
+
+            if (callQuestion.isSuccessful && callAnswer.isSuccessful) {
+                val allQuestions: List<Question>? = callQuestion.body()
+                val allAnswers: List<Answer>? = callAnswer.body()
+                lateinit var currentQuestion: Question
+                lateinit var currentQuestionAnswers: QuestionAnswers
+
+                allQuestions?.forEach { question ->
+                    val answersOfTheCurrentQuestion: MutableList<Answer> = mutableListOf()
+                    currentQuestion = question
+
+                    allAnswers?.forEach { answer ->
+                        if (question.id == answer.questionId) {
+                            answersOfTheCurrentQuestion.add(answer)
+                        }
+                    }
+
+                    currentQuestionAnswers =
+                        QuestionAnswers(currentQuestion, answersOfTheCurrentQuestion)
+
+                    listOfQuestionsWithAnswers.add(currentQuestionAnswers)
+                }
+
+                val tenQuestionList: MutableList<QuestionAnswers> = mutableListOf()
+
+                for (i in 0 until 10) {
+                    val randomNumber = Random.nextInt(listOfQuestionsWithAnswers.size)
+
+                    if (!tenQuestionList.contains(listOfQuestionsWithAnswers[randomNumber])) {
+                        tenQuestionList.add(listOfQuestionsWithAnswers[randomNumber])
+                    }
+                }
+
+                showQuestion(tenQuestionList)
+            }
+
+        }
     }
 
     private fun getQuestions(lessonId: String?) {
@@ -90,7 +144,7 @@ class ExerciseActivity : AppCompatActivity() {
         Glide.with(this)
             .load(R.drawable.eyes)
             .into(binding.ivQuestion)
-        binding.tvTitleOfQuestion.text = actualQuestion.question.name.trim()
+        binding.tvTitleOfQuestion.text = "Pregunta ${(indexQuestion + 1)}"
         binding.tvTextOfQuestion.text = actualQuestion.question.question.trim()
         binding.rb1.text = currentAnswers?.get(0)?.answer?.trim()
         binding.rb2.text = currentAnswers?.get(1)?.answer?.trim()
@@ -110,11 +164,11 @@ class ExerciseActivity : AppCompatActivity() {
                     showQuestion(listOfQuestionsWithAnswers)
                 } else {
 
-                    val lessonId = actualQuestion.question.lessonId.toInt()
                     val preferences = this.getSharedPreferences(
                         "sharedPreferences",
                         MODE_PRIVATE
                     )
+
                     val editor = preferences.edit()
                     val lastLevel = preferences.getString("level", "")
                     var goTo = "salta"
@@ -123,7 +177,7 @@ class ExerciseActivity : AppCompatActivity() {
                         editor.putString("level", (lastLevel.toInt().plus(1)).toString())
                         editor.apply()
 
-                        if (lessonId == 3 || lessonId == 5 || lessonId == 7 || lessonId == 9) {
+                        if (lessonId == 3 || lessonId == 5 || lessonId == 7 || lessonId == 9 || lessonId == 10) {
                             goTo = when (lessonId) {
                                 3 -> {
                                     "sword"
@@ -139,6 +193,10 @@ class ExerciseActivity : AppCompatActivity() {
 
                                 9 -> {
                                     "arch"
+                                }
+
+                                10 -> {
+                                    "win"
                                 }
 
                                 else -> {

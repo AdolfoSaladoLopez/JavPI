@@ -29,6 +29,11 @@
         <item name="colorPrimary">@color/background</item>
 
     </style>
+    
+    <style name="roundedIcons">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 
 </resources>
 

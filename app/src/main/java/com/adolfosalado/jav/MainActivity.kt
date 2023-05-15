@@ -61,21 +61,21 @@ class MainActivity : AppCompatActivity() {
     private fun controllOfImageClickListener() {
         val level = Preferences.recoverLevelOfUserInSharedPreferences(this)?.toInt()!!
 
-        if (level == 4) {
+        if (level >= 4) {
             binding.ivSword.setImageResource(R.drawable.sword)
             binding.ivSword.setOnClickListener {
                 TODO()
             }
         }
 
-        if(level == 6) {
+        if(level >= 6) {
             binding.ivShield.setImageResource(R.drawable.shield)
             binding.ivShield.setOnClickListener {
                 TODO()
             }
         }
 
-        if (level == 8) {
+        if (level >= 8) {
             binding.ivWand.setImageResource(R.drawable.wand)
             binding.ivWand.setOnClickListener {
                 TODO()
@@ -94,6 +94,14 @@ class MainActivity : AppCompatActivity() {
         val level = Preferences.recoverLevelOfUserInSharedPreferences(this)?.toInt()!!
 
         binding.tvLevel.text = level.toString()
+
+        if (level <= 10 ) {
+            binding.tvLevel.text = level.toString()
+
+        } else {
+            binding.tvLevel.text = "NIVEL MÁXIMO"
+        }
+
         binding.btnLessons.setOnClickListener {
             val intent = Intent(this@MainActivity, RecyclerViewLessonActivity::class.java)
             startActivity(intent)
@@ -109,23 +117,23 @@ class MainActivity : AppCompatActivity() {
     private fun showSentence() {
         val level = Preferences.recoverLevelOfUserInSharedPreferences(this)?.toInt()!!
 
-        if (level < 11) {
+        if (level <= 10) {
             val randomNumber = Random.nextInt(sentences.size)
             binding.tvSentence.text = sentences[randomNumber]
 
-        } else {
+        } else if (level == 11){
             val randomNumber = Random.nextInt(sentencesAfterWin.size)
-            binding.tvSentence.text = sentences[randomNumber]
+            binding.tvSentence.text = sentencesAfterWin[randomNumber]
         }
 
         binding.ivTiti.setOnClickListener {
-            if (level < 11) {
+            if (level <= 10) {
                 val randomNumber = Random.nextInt(sentences.size)
                 binding.tvSentence.text = sentences[randomNumber]
 
-            } else {
+            } else if (level == 11) {
                 val randomNumber = Random.nextInt(sentencesAfterWin.size)
-                binding.tvSentence.text = sentences[randomNumber]
+                binding.tvSentence.text = sentencesAfterWin[randomNumber]
             }
         }
     }

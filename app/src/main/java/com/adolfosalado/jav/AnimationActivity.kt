@@ -67,6 +67,11 @@ class AnimationActivity : AppCompatActivity() {
                     "¡Enhorabuena! Has conseguido el Arco Iterable"
             }
 
+            "win" -> {
+                binding.animationView.setAnimation(R.raw.sword)
+                binding.tvCongratulation.text = "¡HAS VENCIDO A NULLY!"
+            }
+
             else -> {
                 TODO()
             }

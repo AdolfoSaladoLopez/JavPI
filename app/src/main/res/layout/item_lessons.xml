@@ -9,35 +9,79 @@
     android:background="@color/card"
     app:cardCornerRadius="30dp">
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/card"
+        android:orientation="horizontal">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivLesson"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/jav"
+            app:shapeAppearanceOverlay="@style/roundedIcons" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre de la lección"
+                android:textAlignment="center"
+                android:gravity="center|top"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Nombre de la lección"
+                android:textColor="@color/white"
+                android:textStyle="italic"
+                android:textSize="20sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/card">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivLesson"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:background="@drawable/circle_shape"
-            android:src="@drawable/jav"
             android:layout_margin="20dp"
+            android:src="@drawable/jav"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            app:shapeAppearanceOverlay="@style/roundedIcons" />
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
+            android:layout_margin="20dp"
             android:text="Nombre de la lección"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvSubtitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivLesson"
             app:layout_constraintTop_toTopOf="parent" />
@@ -46,24 +90,26 @@
             android:id="@+id/tvSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_margin="20dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="80dp"
             android:text="Nombre de la lección"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@id/ivLesson"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivLesson"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
         android:id="@+id/grayOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alpha="0.5"
         android:background="@android:color/darker_gray"
-        android:visibility="gone"
-        android:alpha="0.5" />
+        android:visibility="gone" />
+
 </androidx.cardview.widget.CardView>
