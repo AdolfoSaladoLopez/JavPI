@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.adolfosalado.jav.api.ApiService
 import com.adolfosalado.jav.api.Retrofit
@@ -12,6 +13,7 @@ import com.adolfosalado.jav.models.Answer
 import com.adolfosalado.jav.models.Question
 import com.adolfosalado.jav.models.QuestionAnswers
 import com.bumptech.glide.Glide
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -161,6 +163,7 @@ class ExerciseActivity : AppCompatActivity() {
                 indexQuestion++
 
                 if (indexQuestion < listOfQuestionsWithAnswers.size) {
+                    binding.rgAnswer.check(R.id.rb1)
                     showQuestion(listOfQuestionsWithAnswers)
                 } else {
 
@@ -204,8 +207,6 @@ class ExerciseActivity : AppCompatActivity() {
                                 }
                             }
                         }
-
-
                     }
 
                     if (lessonId == 10) {
@@ -217,11 +218,15 @@ class ExerciseActivity : AppCompatActivity() {
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-
-
                 }
             } else {
-                Toast.makeText(it.context, "No has acertado", Toast.LENGTH_LONG).show()
+                val builder = MaterialAlertDialogBuilder(this, R.style.AlertDialogStyle)
+                builder.setTitle("Error")
+                builder.setMessage("¡Esa no es la respuesta! Vuelve a intentarlo.")
+                builder.setPositiveButton("Aceptar") { dialog, which ->
+                    dialog.dismiss()
+                }
+                builder.show()
             }
         }
     }

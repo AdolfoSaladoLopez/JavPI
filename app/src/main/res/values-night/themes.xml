@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme -->
-    <style name="Base.Theme.JavApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Base.Theme.JavApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color -->
         <item name="colorPrimary">@color/card</item>
         <item name="colorPrimaryVariant">@color/card</item>
@@ -19,14 +19,29 @@
         <item name="android:textColorSecondary">@color/accents</item>
 
         <!-- Button styles -->
-        <item name="buttonStyle">@style/Widget.AppTheme.Button</item>
+        <item name="android:windowContentTransitions">true</item>
+
+
     </style>
 
-    <!-- Button style -->
-    <style name="Widget.AppTheme.Button" parent="Widget.MaterialComponents.Button">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:radius">20dp</item>
+    <style name="Base.Theme.JavApp.2" parent="Base.Theme.JavApp">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimary">@color/background</item>
+
+    </style>
+
+    <style name="roundedIcons">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="AlertDialogStyle" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <!-- Cambiar el color de fondo -->
         <item name="android:background">@color/accents</item>
+        <item name="colorPrimary">@color/white</item>
+
+        <!-- Cambiar el color del texto -->
+        <item name="android:textColorPrimary">@color/white</item>
     </style>
 </resources>
 

@@ -81,10 +81,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/accents"
+            android:checked="true"
             android:shadowColor="@color/accents"
             android:textColor="@color/accents"
             android:textColorLink="@color/accents"
-
             android:textSize="25sp"
             tools:text="Illojuan" />
 

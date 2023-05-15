@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, ToolDetail::class.java)
                 intent.putExtra("tool", "sword")
                 startActivity(intent)
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
             }
         }
 
@@ -76,6 +77,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, ToolDetail::class.java)
                 intent.putExtra("tool", "shield")
                 startActivity(intent)
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
             }
         }
 
@@ -85,6 +87,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, ToolDetail::class.java)
                 intent.putExtra("tool", "wand")
                 startActivity(intent)
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
             }
         }
 
@@ -94,6 +97,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, ToolDetail::class.java)
                 intent.putExtra("tool", "arch")
                 startActivity(intent)
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
             }
         }
     }
@@ -114,8 +118,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, RecyclerViewLessonActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-
-
+            
             val imageView = LottieAnimationView(this)
             imageView.setAnimation(R.raw.celebration)
             imageView.playAnimation()
