@@ -208,6 +208,10 @@ class ExerciseActivity : AppCompatActivity() {
 
                     }
 
+                    if (lessonId == 10) {
+                        goTo = "win"
+                    }
+
                     val intent = Intent(this, AnimationActivity::class.java)
                     intent.putExtra("goTo", goTo)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

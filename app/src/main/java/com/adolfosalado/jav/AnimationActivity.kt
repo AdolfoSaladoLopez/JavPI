@@ -50,25 +50,25 @@ class AnimationActivity : AppCompatActivity() {
             }
 
             "shield" -> {
-                binding.animationView.setAnimation(R.raw.sword)
+                binding.animationView.setAnimation(R.raw.shield)
                 binding.tvCongratulation.text =
                     "¡Enhorabuena! Has conseguido el Escudo Variable"
             }
 
             "wand" -> {
-                binding.animationView.setAnimation(R.raw.sword)
+                binding.animationView.setAnimation(R.raw.wand)
                 binding.tvCongratulation.text =
                     "¡Enhorabuena! Has conseguido la Varita Condicional"
             }
 
             "arch" -> {
-                binding.animationView.setAnimation(R.raw.sword)
+                binding.animationView.setAnimation(R.raw.bow)
                 binding.tvCongratulation.text =
                     "¡Enhorabuena! Has conseguido el Arco Iterable"
             }
 
             "win" -> {
-                binding.animationView.setAnimation(R.raw.sword)
+                binding.animationView.setAnimation(R.raw.win)
                 binding.tvCongratulation.text = "¡HAS VENCIDO A NULLY!"
             }
 

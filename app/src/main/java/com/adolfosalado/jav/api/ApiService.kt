@@ -4,6 +4,7 @@ import com.adolfosalado.jav.models.Answer
 import com.adolfosalado.jav.models.Character
 import com.adolfosalado.jav.models.Lesson
 import com.adolfosalado.jav.models.Question
+import com.adolfosalado.jav.models.Weapon
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
@@ -22,6 +23,11 @@ interface ApiService {
     @GET("api/Answer")
     suspend fun getAnswers(): Response<List<Answer>>
 
+    @GET("api/Weapon")
+    suspend fun getWeapons(): Response<List<Weapon>>
+
     @GET("api/Lesson/{id}")
     suspend fun getLessonById(@Path("id") id: String): Response<Lesson>
+
+
 }

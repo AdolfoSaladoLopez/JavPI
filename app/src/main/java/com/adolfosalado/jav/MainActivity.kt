@@ -64,28 +64,36 @@ class MainActivity : AppCompatActivity() {
         if (level >= 4) {
             binding.ivSword.setImageResource(R.drawable.sword)
             binding.ivSword.setOnClickListener {
-                TODO()
+                val intent = Intent(this, ToolDetail::class.java)
+                intent.putExtra("tool", "sword")
+                startActivity(intent)
             }
         }
 
         if(level >= 6) {
             binding.ivShield.setImageResource(R.drawable.shield)
             binding.ivShield.setOnClickListener {
-                TODO()
+                val intent = Intent(this, ToolDetail::class.java)
+                intent.putExtra("tool", "shield")
+                startActivity(intent)
             }
         }
 
         if (level >= 8) {
             binding.ivWand.setImageResource(R.drawable.wand)
             binding.ivWand.setOnClickListener {
-                TODO()
+                val intent = Intent(this, ToolDetail::class.java)
+                intent.putExtra("tool", "wand")
+                startActivity(intent)
             }
         }
 
         if (level > 9) {
             binding.ivArch.setImageResource(R.drawable.arch)
             binding.ivArch.setOnClickListener {
-                TODO()
+                val intent = Intent(this, ToolDetail::class.java)
+                intent.putExtra("tool", "arch")
+                startActivity(intent)
             }
         }
     }
