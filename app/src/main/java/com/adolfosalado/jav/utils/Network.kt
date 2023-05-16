@@ -1,0 +1,43 @@
+package com.adolfosalado.jav.utils
+
+import android.content.Context
+import android.content.Intent
+import android.net.ConnectivityManager
+import android.widget.Toast
+import com.adolfosalado.jav.ConnectionActivity
+import com.adolfosalado.jav.MainActivity
+import com.adolfosalado.jav.RecyclerViewLessonActivity
+
+class Network(
+    private val context: Context,
+    private val onInternetRestored: () -> Unit,
+    private val onInternetLost: () -> Unit
+) : ConnectivityManager.NetworkCallback() {
+    private var isInternetAvailable = false
+
+    override fun onAvailable(network: android.net.Network) {
+        super.onAvailable(network)
+        isInternetAvailable = true
+
+        onInternetRestored()
+
+
+        val intent = Intent(context, MainActivity::class.java)
+        context.startActivity(intent)
+    }
+
+    override fun onLost(network: android.net.Network) {
+        super.onLost(network)
+        Toast.makeText(context, "No hay conexión", Toast.LENGTH_LONG).show()
+
+        val intent = Intent(context, ConnectionActivity::class.java)
+        context.startActivity(intent)
+
+        onInternetLost()
+
+    }
+
+    fun isInternetAvailable(): Boolean {
+        return isInternetAvailable
+    }
+}

@@ -2,7 +2,6 @@ package com.adolfosalado.jav.utils
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
-import com.adolfosalado.jav.session.SessionData
 
 class Preferences {
     companion object {

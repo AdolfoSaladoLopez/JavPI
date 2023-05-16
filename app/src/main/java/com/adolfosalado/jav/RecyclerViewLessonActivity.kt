@@ -1,6 +1,10 @@
 package com.adolfosalado.jav
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +28,13 @@ class RecyclerViewLessonActivity : AppCompatActivity() {
         binding = ActivityRecyclerViewLessonBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initRecyclerView()
+
+        if (isInternetAvailable(this)) {
+            initRecyclerView()
+        } else {
+            val intent = Intent(this, ConnectionActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun initRecyclerView() {
@@ -53,5 +63,17 @@ class RecyclerViewLessonActivity : AppCompatActivity() {
         val intent = Intent(this, LessonActivity::class.java)
         intent.putExtra("id", lesson.id)
         startActivity(intent)
+    }
+
+    private fun isInternetAvailable(context: Context): Boolean {
+        val connectivityManager: ConnectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        val network = connectivityManager.activeNetwork ?: return false
+        val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+
+        return capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                || capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                || capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
     }
 }

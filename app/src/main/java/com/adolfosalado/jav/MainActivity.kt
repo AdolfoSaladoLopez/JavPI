@@ -1,6 +1,9 @@
 package com.adolfosalado.jav
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.adolfosalado.jav.databinding.ActivityMainBinding
@@ -36,8 +39,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initViews()
-        getCharacterInfo()
+        if (isInternetAvailable(this)) {
+            initViews()
+
+            getCharacterInfo()
+        } else {
+            val intent = Intent(this, ConnectionActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -147,5 +156,17 @@ class MainActivity : AppCompatActivity() {
                 binding.tvSentence.text = sentencesAfterWin[randomNumber]
             }
         }
+    }
+
+    private fun isInternetAvailable(context: Context): Boolean {
+        val connectivityManager: ConnectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        val network = connectivityManager.activeNetwork ?: return false
+        val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+
+        return capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                || capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                || capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
     }
 }
