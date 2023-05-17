@@ -1,145 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ExerciseActivity">
 
-    <TextView
-        android:id="@+id/tvTitleOfQuestion"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:text="PREGUNTA 1"
-        android:textAlignment="center"
-        android:textColor="@color/accents"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".ExerciseActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_margin="20dp"
-        app:cardCornerRadius="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleOfQuestion">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/tvTitleOfQuestion"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/card">
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:text="PREGUNTA 1"
+            android:textAlignment="center"
+            android:textColor="@color/accents"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/ivQuestion"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="25dp"
-                android:src="@drawable/eyes"
-                app:layout_constraintBottom_toTopOf="@+id/tvTextOfQuestion"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleOfQuestion">
 
-            <TextView
-                android:id="@+id/tvTextOfQuestion"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20sp"
-                android:text="¿Cuál es el amigo de Jav?"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivQuestion" />
+                android:background="@color/card">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/ivQuestion"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="25dp"
+                    tools:src="@drawable/eyes"
+                    app:layout_constraintBottom_toTopOf="@+id/tvTextOfQuestion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/tvTextOfQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    tools:text="¿Cuál es el amigo de Jav?"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ivQuestion" />
 
-    <RadioGroup
-        android:id="@+id/rgAnswer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toTopOf="@id/btnAnswer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cv">
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <RadioButton
-            android:id="@+id/rb1"
+        </androidx.cardview.widget.CardView>
+
+        <RadioGroup
+            android:id="@+id/rgAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/accents"
-            android:checked="true"
-            android:shadowColor="@color/accents"
-            android:textColor="@color/accents"
-            android:textColorLink="@color/accents"
-            android:textSize="25sp"
-            tools:text="Illojuan" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toTopOf="@id/btnAnswer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv">
 
-        <RadioButton
-            android:id="@+id/rb2"
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/accents"
+                android:checked="true"
+                android:shadowColor="@color/accents"
+                android:textColor="@color/accents"
+                android:textColorLink="@color/accents"
+                android:textSize="25sp"
+                tools:text="Illojuan" />
+
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/accents"
+                android:outlineAmbientShadowColor="@color/accents"
+                android:shadowColor="@color/accents"
+                android:textColor="@color/accents"
+
+                android:textColorLink="@color/accents"
+                android:textSize="25sp"
+                tools:text="Illojuan" />
+
+            <RadioButton
+                android:id="@+id/rb3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/accents"
+                android:shadowColor="@color/accents"
+                android:textColor="@color/accents"
+
+                android:textColorLink="@color/accents"
+                android:textSize="25sp"
+
+                tools:text="Illojuan" />
+
+            <RadioButton
+                android:id="@+id/rb4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/accents"
+                android:shadowColor="@color/accents"
+                tools:text="Illojuan"
+                android:textColor="@color/accents"
+                android:textColorLink="@color/accents"
+                android:textSize="25sp" />
+        </RadioGroup>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAnswer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/accents"
-            android:outlineAmbientShadowColor="@color/accents"
-            android:shadowColor="@color/accents"
-            android:textColor="@color/accents"
-
-            android:textColorLink="@color/accents"
-            android:textSize="25sp"
-            tools:text="Illojuan" />
-
-        <RadioButton
-            android:id="@+id/rb3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/accents"
-            android:shadowColor="@color/accents"
-            android:textColor="@color/accents"
-
-            android:textColorLink="@color/accents"
-            android:textSize="25sp"
-
-            tools:text="Illojuan" />
-
-        <RadioButton
-            android:id="@+id/rb4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/accents"
-            android:shadowColor="@color/accents"
-            android:text="Illojuan"
-            android:textColor="@color/accents"
-            android:textColorLink="@color/accents"
-            android:textSize="25sp" />
-    </RadioGroup>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnAnswer"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="50sp"
-        android:background="@color/accents"
-        android:text="ENVIAR"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rgAnswer" />
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="50sp"
+            android:background="@color/accents"
+            android:text="ENVIAR"
+            android:theme="@style/buttons"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgAnswer" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

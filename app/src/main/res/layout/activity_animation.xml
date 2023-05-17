@@ -26,9 +26,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="20dp"
         android:text="¡ENHORABUENA!"
         android:textAlignment="center"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textColor="@color/accents"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/animationView" />

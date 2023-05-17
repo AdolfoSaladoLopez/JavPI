@@ -1,5 +1,6 @@
 package com.adolfosalado.jav
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.widget.RadioButton
@@ -13,7 +14,6 @@ import com.adolfosalado.jav.models.Answer
 import com.adolfosalado.jav.models.Question
 import com.adolfosalado.jav.models.QuestionAnswers
 import com.bumptech.glide.Glide
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -220,12 +220,13 @@ class ExerciseActivity : AppCompatActivity() {
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                 }
             } else {
-                val builder = MaterialAlertDialogBuilder(this, R.style.AlertDialogStyle)
-                builder.setTitle("Error")
-                builder.setMessage("¡Esa no es la respuesta! Vuelve a intentarlo.")
-                builder.setPositiveButton("Aceptar") { dialog, which ->
+                val builder = AlertDialog.Builder(this, R.style.AlertDialogStyle)
+                builder.setTitle("¡Has fallado!")
+                builder.setMessage("Has elegido una respuesta incorrecta.")
+                builder.setPositiveButton("Aceptar") { dialog, _ ->
                     dialog.dismiss()
                 }
+                builder.create()
                 builder.show()
             }
         }

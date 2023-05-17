@@ -15,7 +15,7 @@
         <item name="android:windowBackground">@color/background</item>
 
         <!-- Text color -->
-        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/accents</item>
 
         <!-- Button styles -->
@@ -34,11 +34,15 @@
         <item name="cornerSize">50%</item>
     </style>
 
-    <style name="AlertDialogStyle" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+    <style name="AlertDialogStyle" parent="ThemeOverlay.AppCompat.Dialog.Alert">
         <!-- Cambiar el color de fondo -->
-        <item name="android:background">@color/accents</item>
+        <item name="android:background">@color/card</item>
+        <item name="colorPrimary">@color/white</item>
         <!-- Cambiar el color del texto -->
         <item name="android:textColorPrimary">@color/white</item>
+        <item name="textColorAlertDialogListItem">@color/white</item>
+        <item name="cornerRadius">20dp</item>
     </style>
+
 </resources>
 
