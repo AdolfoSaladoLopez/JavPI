@@ -6,7 +6,6 @@ import android.net.ConnectivityManager
 import android.widget.Toast
 import com.adolfosalado.jav.ConnectionActivity
 import com.adolfosalado.jav.MainActivity
-import com.adolfosalado.jav.RecyclerViewLessonActivity
 
 class Network(
     private val context: Context,
@@ -21,7 +20,6 @@ class Network(
 
         onInternetRestored()
 
-
         val intent = Intent(context, MainActivity::class.java)
         context.startActivity(intent)
     }
@@ -34,10 +32,5 @@ class Network(
         context.startActivity(intent)
 
         onInternetLost()
-
-    }
-
-    fun isInternetAvailable(): Boolean {
-        return isInternetAvailable
     }
 }
