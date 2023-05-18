@@ -12,11 +12,9 @@ class Network(
     private val onInternetRestored: () -> Unit,
     private val onInternetLost: () -> Unit
 ) : ConnectivityManager.NetworkCallback() {
-    private var isInternetAvailable = false
 
     override fun onAvailable(network: android.net.Network) {
         super.onAvailable(network)
-        isInternetAvailable = true
 
         onInternetRestored()
 
@@ -26,6 +24,7 @@ class Network(
 
     override fun onLost(network: android.net.Network) {
         super.onLost(network)
+
         Toast.makeText(context, "No hay conexión", Toast.LENGTH_LONG).show()
 
         val intent = Intent(context, ConnectionActivity::class.java)
