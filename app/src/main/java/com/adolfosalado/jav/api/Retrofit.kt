@@ -10,7 +10,7 @@ class Retrofit {
         fun getRetrofit(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create()) // Si estás utilizando Gson para convertir las respuestas
+                .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
     }

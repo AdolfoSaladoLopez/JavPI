@@ -1,12 +1,8 @@
 package com.adolfosalado.jav.adapter
 
-import android.content.Context
-import android.graphics.Color
-import android.opengl.Visibility
-import android.os.Vibrator
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.RecyclerView
 import com.adolfosalado.jav.R
 import com.adolfosalado.jav.databinding.ItemLessonsBinding
@@ -17,6 +13,7 @@ class LessonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     val binding = ItemLessonsBinding.bind(view)
 
+    @SuppressLint("SetTextI18n")
     fun render(lesson: Lesson, onClicklistener: (Lesson) -> Unit) {
         setImage(lesson.id)
 

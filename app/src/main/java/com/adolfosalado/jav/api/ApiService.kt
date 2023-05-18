@@ -28,6 +28,5 @@ interface ApiService {
 
     @GET("api/Lesson/{id}")
     suspend fun getLessonById(@Path("id") id: String): Response<Lesson>
-
-
 }
+
