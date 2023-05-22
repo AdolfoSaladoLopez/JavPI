@@ -16,6 +16,18 @@
         android:theme="@style/Base.Theme.JavApp"
         tools:targetApi="31">
         <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".InicioActivity"
+            android:exported="true"></activity>
+        <activity
             android:name=".ConnectionActivity"
             android:exported="false" />
         <activity
@@ -34,18 +46,12 @@
             android:theme="@style/Base.Theme.JavApp.2" />
         <activity
             android:name=".RecyclerViewLessonActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Base.Theme.JavApp.2" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Base.Theme.JavApp.2">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:theme="@style/Base.Theme.JavApp.2" />
     </application>
 
 </manifest>
