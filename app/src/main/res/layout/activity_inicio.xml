@@ -12,33 +12,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:text="@string/jav_la_elegida_del_reino_tiku"
         android:textAlignment="center"
         android:textColor="@color/accents"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ivMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/jav_la_elegida_del_reino_tiku" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivMain"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_margin="40dp"
-        android:background="@drawable/circle_shape"
         android:src="@drawable/jav_person"
         app:layout_constraintBottom_toTopOf="@+id/tvPresentation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleOfApp" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleOfApp"
+        app:shapeAppearanceOverlay="@style/roundedIcons" />
 
     <TextView
         android:id="@+id/tvPresentation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:textColor="@color/accents"
         app:layout_constraintBottom_toTopOf="@+id/btnGoToMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

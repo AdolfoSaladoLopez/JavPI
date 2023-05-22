@@ -12,9 +12,8 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        val splashScreenDuration = 2000L // 2 segundos
+        val splashScreenDuration = 2000L
         Thread {
-            // Simula cualquier carga o inicialización necesaria aquí
             Thread.sleep(splashScreenDuration)
             checkIfIsTheFirstTime()
             finish()
@@ -36,9 +35,13 @@ class SplashActivity : AppCompatActivity() {
 
             val intent = Intent(this, InicioActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+
         } else if (trueOrFalse == "false") {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+
         }
     }
 }
